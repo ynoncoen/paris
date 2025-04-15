@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Romantic Paris Getaway</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap');
+        
+        :root {
+            --primary: #d46a6a;
+            --secondary: #f8e1e1;
+            --dark: #333333;
+            --light: #f9f9f9;
+            --accent: #d4af37;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--dark);
+            background-color: var(--light);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/api/placeholder/1200/600') center/cover no-repeat;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+        
+        .hero-content {
+            background-color: rgba(0,0,0,0.3);
+            padding: 40px;
+            border-radius: 8px;
+            backdrop-filter: blur(5px);
+            max-width: 800px;
+        }
+        
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+        
+        .date-badge {
+            background-color: var(--accent);
+            color: white;
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        
+        /* Navigation */
+        nav {
+            background-color: white;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        /* Section Styles */
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary);
+        }
+        
+        /* Hotel Section */
+        .hotel-section {
+            background-color: var(--secondary);
+        }
+        
+        .hotel-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            display: flex;
+            margin-bottom: 30px;
+        }
+        
+        .hotel-img {
+            width: 40%;
+            min-height: 300px;
+            background: url('/api/placeholder/500/300') center/cover no-repeat;
+        }
+        
+        .hotel-info {
+            width: 60%;
+            padding: 30px;
+        }
+        
+        .hotel-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+        
+        .hotel-details {
+            margin-bottom: 20px;
+        }
+        
+        .hotel-stay {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            margin-top: 20px;
+        }
+        
+        .btn:hover {
+            background-color: #c25555;
+            transform: translateY(-2px);
+        }
+        
+        /* Restaurants Section */
+        .restaurants-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .restaurant-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .restaurant-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .restaurant-img {
+            height: 200px;
+            background: url('/api/placeholder/400/200') center/cover no-repeat;
+            position: relative;
+        }
+        
+        .restaurant-date {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: var(--primary);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.9rem;
+        }
+        
+        .restaurant-status {
+            position: absolute;
+            bottom: 15px;
+            left: 15px;
+            background-color: #00cc66;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.9rem;
+        }
+        
+        .restaurant-content {
+            padding: 20px;
+        }
+        
+        .restaurant-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .restaurant-time {
+            color: #777;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .restaurant-time i {
+            margin-right: 5px;
+            color: var(--accent);
+        }
+        
+        /* Itinerary Section */
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: var(--secondary);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            right: -13px;
+            background-color: var(--primary);
+            border: 4px solid var(--accent);
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        
+        .left {
+            left: 0;
+        }
+        
+        .right {
+            left: 50%;
+        }
+        
+        .right::after {
+            left: -12px;
+        }
+        
+        .timeline-content {
+            padding: 20px 30px;
+            background-color: white;
+            position: relative;
+            border-radius: 6px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .timeline-date {
+            background-color: var(--accent);
+            display: inline-block;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+        
+        .timeline-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+        
+        .timeline-body p {
+            margin-bottom: 10px;
+        }
+        
+        .timeline-highlights {
+            background-color: var(--secondary);
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 15px;
+        }
+        
+        .highlight-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .highlight-item i {
+            color: var(--primary);
+            margin-right: 10px;
+        }
+        
+        .special-day {
+            position: relative;
+        }
+        
+        .special-day::before {
+            content: "🎁 Yael's Birthday! 🎁";
+            position: absolute;
+            top: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--primary);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+        
+        /* Birthday Special */
+        .birthday-section {
+            background-color: var(--secondary);
+            text-align: center;
+            padding: 100px 0;
+        }
+        
+        .birthday-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .birthday-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .birthday-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+        }
+        
+        .birthday-icon {
+            font-size: 4rem;
+            color: var(--accent);
+            margin-bottom: 30px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 50px 0 20px;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .footer-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        
+        .footer-text {
+            margin-bottom: 30px;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+        
+        .social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: white;
+            color: var(--dark);
+            border-radius: 50%;
+            margin: 0 10px;
+            transition: all 0.3s;
+        }
+        
+        .social-icon:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .copyright {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.6);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hotel-card {
+                flex-direction: column;
+            }
+            
+            .hotel-img, .hotel-info {
+                width: 100%;
+            }
+            
+            .restaurants-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item::after {
+                left: 18px;
+            }
+            
+            .left, .right {
+                left: 0;
+            }
+            
+            .special-day::before {
+                top: -60px;
+                left: 70px;
+                transform: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="hero-content">
+            <div class="date-badge">April 22 - April 28, 2025</div>
+            <h1>Our Romantic Paris Getaway</h1>
+            <p class="hero-subtitle">Celebrating Yael's Birthday in the City of Love</p>
+        </div>
+    </header>
+    
+    <nav>
+        <div class="container nav-container">
+            <div class="logo">Paris, je t'aime</div>
+            <ul class="nav-links">
+                <li><a href="#hotel">Hotel</a></li>
+                <li><a href="#restaurants">Restaurants</a></li>
+                <li><a href="#itinerary">Itinerary</a></li>
+                <li><a href="#birthday">Birthday</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <section class="hotel-section" id="hotel">
+        <div class="container">
+            <h2 class="section-title">Our Hotel</h2>
+            <div class="hotel-card">
+                <div class="hotel-img"></div>
+                <div class="hotel-info">
+                    <h3 class="hotel-name">Le Clark Marais</h3>
+                    <div class="hotel-details">
+                        <p>Located in the heart of the vibrant Marais district, Le Clark Marais offers a perfect blend of comfort and Parisian charm. With its stylish interior and excellent amenities, it's the ideal base for our romantic adventure.</p>
+                        <p class="hotel-stay">Check-in: Apr 22 | Check-out: Apr 28</p>
+                    </div>
+                    <a href="https://maps.app.goo.gl/7emrrYGsTK2geUdW7" target="_blank" class="btn">View on Map</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="restaurants">
+        <div class="container">
+            <h2 class="section-title">Our Dining Adventures</h2>
+            <div class="restaurants-grid">
+                <!-- Tuesday -->
+                <div class="restaurant-card">
+                    <div class="restaurant-img">
+                        <div class="restaurant-date">Tuesday, Apr 22</div>
+                        <div class="restaurant-status">Booked</div>
+                    </div>
+                    <div class="restaurant-content">
+                        <h3 class="restaurant-name">Stellar Restaurant - Ephemera</h3>
+                        <p class="restaurant-time"><i class="fas fa-clock"></i> 19:45</p>
+                        <p>Begin our Parisian adventure with innovative cuisine in an atmospheric setting.</p>
+                        <a href="https://maps.app.goo.gl/QzYVHQRNeAZUSjvr7" target="_blank" class="btn">View on Map</a>
+                    </div>
+                </div>
+                
+                <!-- Wednesday - Birthday -->
+                <div class="restaurant-card" style="border: 2px solid var(--accent);">
+                    <div class="restaurant-img" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('/api/placeholder/400/200') center/cover no-repeat;">
+                        <div class="restaurant-date" style="background-color: var(--accent);">Wednesday, Apr 23 🎂</div>
+                        <div class="restaurant-status">Booked</div>
+                    </div>
+                    <div class="restaurant-content">
+                        <h3 class="restaurant-name">Carboni's</h3>
+                        <p class="restaurant-time"><i class="fas fa-clock"></i> 19:30</p>
+                        <p>Special birthday dinner at this exquisite restaurant. Italian cuisine with a French twist.</p>
+                        <p><small>(€60 cancellation fee)</small></p>
+                        <a href="https://maps.app.goo.gl/gH9vNEWudeFdh2M26" target="_blank" class="btn">View on Map</a>
+                    </div>
+                </div>
+                
+                <!-- Thursday -->
+                <div class="restaurant-card">
+                    <div class="restaurant-img">
+                        <div class="restaurant-date">Thursday, Apr 24</div>
+                        <div class="restaurant-status">Booked</div>
+                    </div>
+                    <div class="restaurant-content">
+                        <h3 class="restaurant-name">Enfants Rouges</h3>
+                        <p class="restaurant-time"><i class="fas fa-clock"></i> 20:00</p>
+                        <p>Named after a historic market, enjoy sophisticated French cuisine in a cozy setting.</p>
+                        <p><small>(€50 cancellation fee)</small></p>
+                        <a href="https://maps.app.goo.gl/sqSPhsp9BmDaGHM69" target="_blank" class="btn">View on Map</a>
+                    </div>
+                </div>
+                
+                <!-- Friday -->
+                <div class="restaurant-card">
+                    <div class="restaurant-img">
+                        <div class="restaurant-date">Friday, Apr 25</div>
+                        <div class="restaurant-status">Booked</div>
+                    </div>
+                    <div class="restaurant-content">
+                        <h3 class="restaurant-name">Ober Mama</h3>
+                        <p class="restaurant-time"><i class="fas fa-clock"></i> 19:30</p>
+                        <p>Trendy Italian restaurant known for its lively atmosphere and delicious pasta dishes.</p>
+                        <a href="https://maps.app.goo.gl/gb6w1hmXcyeXoPj69" target="_blank" class="btn">View on Map</a>
+                    </div>
+                </div>
+                
+                <!-- Saturday -->
+                <div class="restaurant-card">
+                    <div class="restaurant-img">
+                        <div class="restaurant-date">Saturday, Apr 26</div>
+                        <div class="restaurant-status" style="background-color: #f2994a;">No Booking</div>
+                    </div>
+                    <div class="restaurant-content">
+                        <h3 class="restaurant-name">Le Petit Breguet</h3>
+                        <p class="restaurant-time"><i class="fas fa-info-circle"></i> Walk-in Only</p>
+                        <p>Charming French bistro with a relaxed vibe and authentic cuisine.</p>
+                        <a href="https://maps.app.goo.gl/95JuFeF2suPA498L6" target="_blank" class="btn">View on Map</a>
+                    </div>
+                </div>
+                
+                <!-- Sunday -->
+                <div class="restaurant-card">
+                    <div class="restaurant-img">
+                        <div class="restaurant-date">Sunday, Apr 27</div>
+                        <div class="restaurant-status">Booked</div>
+                    </div>
+                    <div class="restaurant-content">
+                        <h3 class="restaurant-name">Chez Ajia</h3>
+                        <p class="restaurant-time"><i class="fas fa-clock"></i> 19:30</p>
+                        <p>Experience the fusion of French and Asian cuisines in an elegant setting.</p>
+                        <a href="https://maps.app.goo.gl/2esmHEtkcdCv4Bf2A" target="_blank" class="btn">View on Map</a>
+                    </div>
+                </div>
+                
+                <!-- Backup Options -->
+                <div class="restaurant-card" style="background-color: var(--secondary); box-shadow: none;">
+                    <div class="restaurant-content" style="text-align: center;">
+                        <h3 class="restaurant-name">Backup Options</h3>
+                        <ul style="list-style: none; margin-top: 20px;">
+                            <li style="margin-bottom: 15px;">
+                                <a href="https://www.champ-libre-cantine.fr/restaurant#soir" target="_blank" style="color: var(--primary); font-weight: 600;">Champ Libre Cantine</a>
+                            </li>
+                            <li style="margin-bottom: 15px;">
+                                <a href="https://camille-restaurant.com/en/" target="_blank" style="color: var(--primary); font-weight: 600;">Camille Restaurant</a>
+                            </li>
+                            <li>
+                                <a href="https://maps.app.goo.gl/X5kMbv5WHABqdf6s7" target="_blank" style="color: var(--primary); font-weight: 600;">Baffo</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="itinerary">
+        <div class="container">
+            <h2 class="section-title">Our Itinerary</h2>
+            <div class="timeline">
+                <!-- Tuesday -->
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <div class="timeline-date">Tuesday, April 22</div>
+                        <h2 class="timeline-title">Arrival Day</h2>
+                        <div class="timeline-body">
+                            <p>Welcome to Paris! Our romantic adventure begins.</p>
+                            <div class="timeline-highlights">
+                                <div class="highlight-item">
+                                    <i class="fas fa-plane"></i>
+                                    <span>Flight TLV → CDG (LY0221)</span>
+                                </div>
+                                <div class="highlight-item">
+                                    <i class="fas fa-clock"></i>
+                                    <span>08:00 - 12:00</span>
+                                </div>
+                                <div class="highlight-item">
+                                    <i class="fas fa-hotel"></i>
+                                    <span>Check in at Le Clark Marais</span>
+                                </div>
+                                <div class="highlight-item">
+                                    <i class="fas fa-utensils"></i>
+                                    <span>Dinner at Stellar Restaurant - Ephemera (19:45)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Wednesday - Birthday -->
+                <div class="timeline-item right special-day">
+                    <div class="timeline-content" style="border: 2px solid var(--accent);">
+                        <div class="timeline-date" style="background-color: var(--accent);">Wednesday, April 23</div>
+                        <h2 class="timeline-title">Yael's Birthday Celebration</h2>
+                        <div class="timeline-body">
+                            <p>A special day devoted to celebrating Yael in the most romantic city in the world.</p>
+                            <div class="timeline-highlights">
+                                <div class="highlight-item">
+                                    <i class="fas fa-gift"></i>
+                                    <span>Birthday Shopping in the 11th Arrondissement</span>
+                                </div>
+                                <div class="highlight-item">
+                                    <i class="fas fa-heart"></i>
+                                    <span>Surprise activities throughout the day</span>
+                                </div>
+                                <div class="highlight-item">
+                                    <i class="fas fa-utensils"></i>
+                                    <span>Special Birthday Dinner at Carboni's (19:30)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Thursday -->
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <div class="timeline-date">Thursday, April 24</div>
+                        <h2 class="timeline-title">Cultural Paris</h2>
+                        <div class="timeline-body">
+                            <p>Immerse ourselves in the cultural richness of Paris.</p>
+                            <div class="timeline-highlights">
+                                <div class="highlight-item">
+                                    <i class="fas fa-walking"></i>
+                                    <span>Urban Cultural Tour at 10:30</span>
+                                </div>
+                                <div class="highlight-item">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>Discover the Secrets of Paris</span>
+                                </div>
+                                <div class="highlight-item">
+                                    <i class="fas fa-utensils"></i>
+                                    <span>Dinner at Enfants Rouges (20:00)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Friday -->
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <div class="timeline-date">Friday, April 25</div>
+                        <h2 class="timeline-title">Montmartre Exploration</h2>
+                        <div class="timeline-body">
+                            <p>Discover the artistic soul of Paris in Montmartre.</p>
+                            <div class="timeline-highlights">
+                                <div class="highlight-item">
+                                    <i class="fas fa-mountain"></i>
+                                    <span>Montmartre</span>
+                                </div>
+                                <div class="highlight-item">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>17th Arrondissement</span>
+                                </div>
+                                <div class="highlight-item">
+                                    <i class="fas fa-utensils"></i>
+                                    <span>Dinner at Ober Mama (19:30)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Saturday -->
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <div class="timeline-date">Saturday, April 26</div>
+                        <h2 class="timeline-title">Art & Nature</h2>
+                        <div class="timeline-body">
+                            <p>Experience the blend of art and nature in western Paris.</p>
+                            <div class="timeline-highlights">
+                                <div class="highlight-item">
+                                    <i class="fas fa-landmark"></i>
+                                    <span>Fondation Louis Vuitton</span>
+                                </div>
+                                <div class="highlight-item">
+                                    <i class="fas fa-tree"></i>
+                                    <span>Bois du Boulogne</span>
+                                </div>
+                                <div class="highlight-item">
+                                    <i class="fas fa-utensils"></i>
+                                    <span>Dinner at Le Petit Breguet (walk-in)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Sunday -->
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <div class="timeline-date">Sunday, April 27</div>
+                        <h2 class="timeline-title">Classic Paris</h2>
+                        <div class="timeline-body">
+                            <p>Visit iconic Parisian landmarks and gardens.</p>
+                            <div class="timeline-highlights">
+                                <div class="highlight-item">
+                                    <i class="fas fa-tree"></i>
+                                    <span>Tuileries Gardens</span>
+                                </div>
+                                <div class="highlight-item">
+                                    <i class="fas fa-palette"></i>
+                                    <span>Musée de l'Orangerie (12:00)</span>
+                                </div>
+                                <div class="highlight-item">
+                                    <i class="fas fa-church"></i>
+                                    <span>Notre Dame</span>
+                                </div>
+                                <div class="highlight-item">
+                                    <i class="fas fa-utensils"></i>
+                                    <span>Dinner at Chez Ajia (19:30)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Monday -->
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <div class="timeline-date">Monday, April 28</div>
+                        <h2 class="timeline-title">Departure Day</h2>
+                        <div class="timeline-body">
+                            <p>Time to say au revoir to the City of Love.</p>
+                            <div class="timeline-highlights">
+                                <div class="highlight-item">
+                                    <i class="fas fa-hotel"></i>
+                                    <span>Check out from Le Clark Marais</span>
+                                </div>
+                                <div class="highlight-item">
+                                    <i class="fas fa-plane"></i>
+                                    <span>Flight CDG → TLV (LY0326)</span>
+                                </div>
+                                <div class="highlight-item">
+                                    <i class="fas fa-clock"></i>
+                                    <span>22:30 - 03:55 (next day)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="birthday-section" id="birthday">
+        <div class="birthday-container">
+            <div class="birthday-icon">🎂</div>
+            <h2 class="birthday-title">Happy Birthday, Yael!</h2>
+            <p class="birthday-subtitle">Celebrating your special day in the most romantic city in the world</p>
+            <p>What better way to celebrate a birthday than with stunning views, exquisite cuisine, and unforgettable memories in the City of Light? We've planned a day filled with love, surprises, and all your favorite things.</p>
+            <a href="#itinerary" class="btn" style="background-color: var(--accent); margin-top: 30px;">See Birthday Itinerary</a>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="footer-content">
+            <h2 class="footer-title">Paris, je t'aime</h2>
+            <p class="footer-text">An unforgettable romantic getaway in the City of Love.</p>
+            <div class="social-links">
+                <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-icon"><i class="fas fa-heart"></i></a>
+            </div>
+            <div class="copyright">
+                <p>Our Romantic Paris Adventure | April 22 - April 28, 2025</p>
+                <p><a href="https://www.google.com/maps/d/u/0/edit?mid=1ZwBSC-Rpo6XTtq5LhHOSpPVImO8QYfU&ll=48.862219813155164%2C2.3669854072402785&z=15" target="_blank" style="color: var(--primary); text-decoration: none;">View Custom Map</a></p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

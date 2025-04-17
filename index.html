@@ -563,48 +563,31 @@
             }
         }
         
+        .map-section {
+            background-color: var(--secondary);
+        }
+        
+        .map-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+        
+        .map-container {
+            max-width: 100%;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+        
+        @media (max-width: 768px) {
+            .map-container iframe {
+                height: 400px;
+            }
+        }
+        
         @media (max-width: 480px) {
-            .container {
-                padding: 0 15px;
-            }
-            
-            h1 {
-                font-size: 2rem;
-            }
-            
-            .hero-subtitle {
-                font-size: 1.2rem;
-            }
-            
-            .date-badge {
-                font-size: 0.9rem;
-                padding: 8px 15px;
-            }
-            
-            .nav-links {
-                flex-wrap: wrap;
-                gap: 10px;
-            }
-            
-            .nav-links li {
-                font-size: 0.9rem;
-            }
-            
-            .section-title {
-                font-size: 1.8rem;
-            }
-            
-            .timeline-date {
-                font-size: 0.9rem;
-            }
-            
-            .timeline-title {
-                font-size: 1.1rem;
-            }
-            
-            .btn {
-                padding: 10px 20px;
-                font-size: 0.9rem;
+            .map-container iframe {
+                height: 300px;
             }
         }
     </style>
@@ -626,6 +609,7 @@
                 <li><a href="#restaurants">Restaurants</a></li>
                 <li><a href="#itinerary">Itinerary</a></li>
                 <li><a href="#birthday">Birthday</a></li>
+                <li><a href="#map">Map</a></li>
             </ul>
         </div>
     </nav>
@@ -938,7 +922,7 @@
                 <div class="timeline-item left">
                     <div class="timeline-content">
                         <div class="timeline-date">Monday, April 28</div>
-                        <h2 class="timeline-title">Departure Day</h2>
+                        <h2 class="timeline-title">Final Art Visit & Departure</h2>
                         <div class="timeline-body">
                             <p>A final morning in Paris before we say au revoir to the City of Love.</p>
                             <div class="timeline-highlights">
@@ -973,6 +957,16 @@
             <p class="birthday-subtitle">Celebrating your special day in the most romantic city in the world</p>
             <p>What better way to celebrate a birthday than with stunning views, exquisite cuisine, and unforgettable memories in the City of Light? We've planned a day filled with love, surprises, and all your favorite things.</p>
             <a href="#itinerary" class="btn" style="background-color: var(--accent); margin-top: 30px;">See Birthday Itinerary</a>
+        </div>
+    </section>
+    
+    <section id="map" class="map-section">
+        <div class="container">
+            <h2 class="section-title">Our Paris Map</h2>
+            <p class="map-intro">Explore all our destinations, restaurants, and activities on this custom map of Paris.</p>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/d/embed?mid=1ZwBSC-Rpo6XTtq5LhHOSpPVImO8QYfU&ehbc=2E312F" width="100%" height="600" style="border:0; border-radius:10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);"></iframe>
+            </div>
         </div>
     </section>
     
